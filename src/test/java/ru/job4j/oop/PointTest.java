@@ -1,0 +1,18 @@
+package ru.job4j.oop;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class PointTest {
+
+    @Test
+    public void distWen0002Then2() {
+        double expected = 5.1;
+        Point a = new Point(1, 3);
+        Point b = new Point(6, 2);
+        double out = a.distance(b);
+        Assert.assertEquals(expected, out, 0.01);
+    }
+}
