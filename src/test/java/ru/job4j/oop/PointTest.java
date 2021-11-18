@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 public class PointTest {
 
     @Test
-    public void distWen0002Then2() {
+    public void distWen1362Then5dot1() {
         double expected = 5.1;
         Point a = new Point(1, 3);
         Point b = new Point(6, 2);
