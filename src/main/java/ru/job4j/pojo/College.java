@@ -6,7 +6,7 @@ public class College {
         vasya.setName("Васильев Василий Васильевич");
         vasya.setGroup("III");
         vasya.setAdmissionDate("1 сентября 2020");
-        System.out.println(vasya.getName() + " -- студент группы " +
-                vasya.getGroup() + ", поступил " + vasya.getAdmissionDate());
+        System.out.println(vasya.getName() + " -- студент группы "
+                + vasya.getGroup() + ", поступил " + vasya.getAdmissionDate());
     }
 }
