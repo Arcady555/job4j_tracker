@@ -25,6 +25,4 @@ public class Surgeon extends Doctor {
     public boolean wasAmputation(int handAmount) {
         return handAmount < 2;
     }
-
-
 }
