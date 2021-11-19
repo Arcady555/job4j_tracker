@@ -16,4 +16,14 @@ public class TriangleTest {
         double rsl = triangle.area();
         assertThat(rsl, closeTo(8, 0.001));
     }
+
+    @Test
+    public void areaFalse() {
+        Point a = new Point(0, 0);
+        Point b = new Point(1, 1);
+        Point c = new Point(56, 56);
+        Triangle triangle = new Triangle(a, b, c);
+        double rsl = triangle.area();
+        assertThat(rsl, closeTo(-1, 0.001));
+    }
 }
