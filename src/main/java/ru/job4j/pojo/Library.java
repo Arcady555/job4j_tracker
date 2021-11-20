@@ -12,19 +12,31 @@ public class Library {
         array[1] = book1;
         array[2] = book2;
         array[3] = book3;
-        for (Book book : array) {
-            System.out.println(book.getName() + ", " + book.getPagesAmount());
-        }
-        Book temp = array[0];
-        array[0] = array[3];
-        array[3] = temp;
-        for (Book book : array) {
-            System.out.println(book.getName() + ", " + book.getPagesAmount());
-        }
+        print(array);
+        System.out.println(System.lineSeparator());
+        swap(array, 0, 3);
+        print(array);
+        System.out.println(System.lineSeparator());
+        findCleanCode(array);
+    }
+
+    public static void findCleanCode(Book[] array) {
         for (Book book : array) {
             if (book.getName().equals("Clean code")) {
                 System.out.println(book.getName() + ", " + book.getPagesAmount());
             }
         }
+    }
+
+    public static void print(Book[] array) {
+        for (Book book : array) {
+            System.out.println(book.getName() + ", " + book.getPagesAmount());
+        }
+    }
+
+    public static void swap(Book[] array, int a, int b) {
+        Book temp = array[a];
+        array[a] = array[b];
+        array[b] = temp;
     }
 }
