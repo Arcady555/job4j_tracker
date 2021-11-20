@@ -10,14 +10,6 @@ public class Surgeon extends Doctor {
         this.operation = operation;
     }
 
-    public Surgeon(String patient, String operation) {
-        super(patient);
-        this.operation = operation;
-    }
-
-    public Surgeon() {
-    }
-
     public Surgeon(String operation) {
         this.operation = operation;
     }

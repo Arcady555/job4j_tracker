@@ -10,14 +10,6 @@ public class Builder extends Engineer {
         this.material = material;
     }
 
-    public Builder(String machine, String material) {
-        super(machine);
-        this.material = material;
-    }
-
-    public Builder() {
-    }
-
     public Builder(String material) {
         this.material = material;
     }

@@ -10,14 +10,6 @@ public class Programmer extends Engineer {
         this.level = level;
     }
 
-    public Programmer(String machine, String level) {
-        super(machine);
-        this.level = level;
-    }
-
-    public Programmer() {
-    }
-
     public Programmer(String level) {
         this.level = level;
     }

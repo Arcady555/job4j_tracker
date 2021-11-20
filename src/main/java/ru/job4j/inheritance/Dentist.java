@@ -9,14 +9,6 @@ public class Dentist extends Doctor {
         this.toothAmount = toothAmount;
     }
 
-    public Dentist(String patient, int toothAmount) {
-        super(patient);
-        this.toothAmount = toothAmount;
-    }
-
-    public Dentist() {
-    }
-
     public Dentist(int toothAmount) {
         this.toothAmount = toothAmount;
     }
