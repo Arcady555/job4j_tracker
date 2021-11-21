@@ -22,7 +22,7 @@ public class Library {
 
     public static void findCleanCode(Book[] array) {
         for (Book book : array) {
-            if (book.getName().equals("Clean code")) {
+            if ("Clean code".equals(book.getName())) {
                 System.out.println(book.getName() + ", " + book.getPagesAmount());
             }
         }
