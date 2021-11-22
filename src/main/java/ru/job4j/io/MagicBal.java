@@ -13,7 +13,7 @@ public class MagicBal {
         print(answer);
     }
 
-    private static void print ( int answer) {
+    private static void print(int answer) {
         String rsl = "";
         switch (answer) {
             case 1: rsl = "да";
