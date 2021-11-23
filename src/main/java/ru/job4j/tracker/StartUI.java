@@ -20,6 +20,8 @@ public class StartUI {
                 ifZero(scanner, tracker);
             } else if (select == 1) {
                 ifOne(tracker);
+            } else if (select == 2) {
+                ifTwo(scanner, tracker);
             } else if (select == 6) {
                 run = false;
             }
@@ -56,6 +58,20 @@ public class StartUI {
             }
         } else {
             System.out.println("Хранилище еще не содержит заявок");
+        }
+    }
+
+    private static void ifTwo(Scanner scanner, Tracker tracker) {
+        System.out.println("=== Edit item ===");
+        System.out.print("Enter id: ");
+        int id = Integer.parseInt(scanner.nextLine());
+        System.out.print("Enter name: ");
+        String name = scanner.nextLine();
+        Item item = new Item(name);
+        if (tracker.replace(id, item)) {
+            System.out.println("Заявка изменена успешно.");
+        } else {
+            System.out.println("Ошибка замены заявки.");
         }
     }
 }
