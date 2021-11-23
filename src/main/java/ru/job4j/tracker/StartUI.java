@@ -17,11 +17,11 @@ public class StartUI {
             System.out.print("Select: ");
             int select = Integer.parseInt(scanner.nextLine());
             if (select == 0) {ifZero(scanner, tracker);}
-            else if (select == 1) {ifOne(tracker);}
-            else if (select == 2) {ifTwo(scanner, tracker);}
-            else if (select == 3) {ifThree(scanner, tracker);}
-            else if (select == 4) {ifFour(scanner, tracker);}
-            else if (select == 6) {run = false;}
+            else if (select == 1) ifOne(tracker);
+            else if (select == 2) ifTwo(scanner, tracker);
+            else if (select == 3) ifThree(scanner, tracker);
+            else if (select == 4) ifFour(scanner, tracker);
+            else if (select == 6) run = false;
         }
     }
 
