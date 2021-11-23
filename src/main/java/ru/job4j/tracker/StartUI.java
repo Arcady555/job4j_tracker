@@ -16,23 +16,18 @@ public class StartUI {
             showMenu();
             System.out.print("Select: ");
             int select = Integer.parseInt(scanner.nextLine());
-            if (select == 0) {
-                ifZero(scanner, tracker);
-            }
-            else if (select == 1) {
-                ifOne(tracker);
-            }
-            else if (select == 2) {
-                ifTwo(scanner, tracker);
-            }
-            else if (select == 3) {
-                ifThree(scanner, tracker);
-            }
-            else if (select == 4) {
-                ifFour(scanner, tracker);
-            }
-            else if (select == 6) {
-                run = false;
+            switch (select) {
+                case 0: ifZero(scanner, tracker);
+                break;
+                case 1: ifOne(tracker);
+                break;
+                case 2: ifTwo(scanner, tracker);
+                break;
+                case 3: ifThree(scanner, tracker);
+                break;
+                case 4: ifFour(scanner, tracker);
+                break;
+                case 6: run = false;
             }
         }
     }
