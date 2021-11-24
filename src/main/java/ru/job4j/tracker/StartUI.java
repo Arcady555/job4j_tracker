@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class StartUI {
 
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
         Tracker tracker = new Tracker();
         new StartUI().init(scanner, tracker);
@@ -21,6 +20,8 @@ public class StartUI {
                 ifZero(scanner, tracker);
             } else if (select == 1) {
                 ifOne(tracker);
+            } else if (select == 2) {
+                ifTwo(scanner, tracker);
             } else if (select == 6) {
                 run = false;
             }
@@ -49,7 +50,7 @@ public class StartUI {
     }
 
     private void ifOne(Tracker tracker) {
-        System.out.println("=== Show all items ===");
+        System.out.println("===Show all items");
         Item[] items = tracker.findAll();
         if (items.length > 0) {
             for (Item item : items) {
@@ -57,6 +58,20 @@ public class StartUI {
             }
         } else {
             System.out.println("Хранилище еще не содержит заявок");
+        }
+    }
+
+    private void ifTwo(Scanner scanner, Tracker tracker) {
+        System.out.println("=== Edit item ===");
+        System.out.print("Enter id: ");
+        int id = Integer.parseInt(scanner.nextLine());
+        System.out.print("Enter name: ");
+        String name = scanner.nextLine();
+        Item item = new Item(name);
+        if (tracker.replace(id, item)) {
+            System.out.println("Заявка изменена успешно.");
+        } else {
+            System.out.println("Ошибка замены заявки.");
         }
     }
 }
