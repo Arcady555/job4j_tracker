@@ -19,7 +19,7 @@ public class StartUI {
             showMenu();
             System.out.print("Select: ");
             int select = Integer.parseInt(scanner.nextLine());
-            if (select >= 0 & select <= 4) {
+            if (select >= 0 & select <= 5) {
                 selection(select, scanner, tracker);
             } else if (select == 6) {
                 run = false;
