@@ -38,6 +38,8 @@ public class StartUI {
             ifThree(scanner, tracker);
         } else if (select == 4) {
             ifFour(scanner, tracker);
+        } else if (select == 5) {
+            ifFive(scanner, tracker);
         }
     }
 
@@ -108,6 +110,20 @@ public class StartUI {
             System.out.println(item);
         } else {
             System.out.println("Заявка с введенным id: " + id + " не найдена.");
+        }
+    }
+
+    private void ifFive(Scanner scanner, Tracker tracker) {
+        System.out.println("=== Find items by name ===");
+        System.out.print("Enter name: ");
+        String name = scanner.nextLine();
+        Item[] items = tracker.findByName(name);
+        if (items.length > 0) {
+            for (Item item : items) {
+                System.out.println(item);
+            }
+        } else {
+            System.out.println("Заявки с именем: " + name + " не найдены.");
         }
     }
 }
