@@ -4,12 +4,12 @@ public class Bus implements Transport, Vehicle {
 
     @Override
     public void drive() {
-
+        System.out.println("Go!");
     }
 
     @Override
     public void passengers(int passenger) {
-
+        System.out.println("Вмещает " + passenger + " пассажиров");
     }
 
     @Override
