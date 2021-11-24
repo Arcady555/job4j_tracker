@@ -26,7 +26,11 @@ public class Matches {
                 System.out.println("На столе " + count + " " + grammar(count));
             }
         }
-        isWin(turn);
+        if (!turn) {
+            System.out.println("Выиграл первый игрок");
+        } else {
+            System.out.println("Выиграл второй игрок");
+        }
     }
 
     private static String grammar(int count) {
@@ -36,14 +40,6 @@ public class Matches {
             return  "спички";
         } else {
             return  "спичек";
-        }
-    }
-
-    private static void isWin(boolean turn) {
-        if (!turn) {
-            System.out.println("Выиграл первый игрок");
-        } else {
-            System.out.println("Выиграл второй игрок");
         }
     }
 }
