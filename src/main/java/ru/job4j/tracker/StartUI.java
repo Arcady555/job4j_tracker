@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 public class StartUI {
 
     public static void main(String[] args) {
-        Input input= new ConsoleInput();
+        Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
         new StartUI().init(input, tracker);
     }
