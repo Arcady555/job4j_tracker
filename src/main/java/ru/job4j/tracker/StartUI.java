@@ -17,22 +17,9 @@ public class StartUI {
             System.out.print("Select: ");
             int select = Integer.parseInt(scanner.nextLine());
             if (select == 0) {
-                System.out.println("=== Create a new Item ===");
-                System.out.print("Enter name: ");
-                String name = scanner.nextLine();
-                Item item = new Item(name);
-                tracker.add(item);
-                System.out.println("Добавленная заявка: " + item);
+                ifZero(scanner, tracker);
             } else if (select == 1) {
-                System.out.println("=== Show all items ===");
-                Item[] items = tracker.findAll();
-                if (items.length > 0) {
-                    for (Item item : items) {
-                        System.out.println(item);
-                    }
-                } else {
-                    System.out.println("Хранилище еще не содержит заявок");
-                }
+                ifOne(tracker);
             } else if (select == 6) {
                 run = false;
             }
@@ -48,6 +35,27 @@ public class StartUI {
         System.out.println("Menu:");
         for (int i = 0; i < menu.length; i++) {
             System.out.println(i + ". " + menu[i]);
+        }
+    }
+
+    private void ifZero(Scanner scanner, Tracker tracker) {
+        System.out.println("=== Create a new Item ===");
+        System.out.print("Enter name: ");
+        String name = scanner.nextLine();
+        Item item = new Item(name);
+        tracker.add(item);
+        System.out.println("Добавленная заявка: " + item);
+    }
+
+    private void ifOne(Tracker tracker) {
+        System.out.println("=== Show all items ===");
+        Item[] items = tracker.findAll();
+        if (items.length > 0) {
+            for (Item item : items) {
+                System.out.println(item);
+            }
+        } else {
+            System.out.println("Хранилище еще не содержит заявок");
         }
     }
 }
