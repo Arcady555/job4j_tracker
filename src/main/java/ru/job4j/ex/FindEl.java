@@ -15,7 +15,7 @@ public class FindEl {
     }
 
     public static void main(String[] args) {
-        String[] array =new String[] {"Vasya", "Arcady", "Masha"};
+        String[] array = new String[] {"Vasya", "Arcady", "Masha"};
         String word = "Arcady";
         try {
             FindEl.indexOf(array, word);
