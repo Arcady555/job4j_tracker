@@ -22,22 +22,6 @@ public class StartUITest {
     }
 
     @Test
-    public void whenReplaceItem() {
-        Tracker tracker = new Tracker();
-        Item item = tracker.add(new Item("Replaced item"));
-        String replacedName = "New item name";
-        Input in = new StubInput(
-                new String[] {"0", String.valueOf(item.getId()), "New item name", "1"}
-        );
-        UserAction[] actions = {
-                new ReplaceAction(),
-                new Exit()
-        };
-        new StartUI().init(in, tracker, actions);
-        assertThat(tracker.findById(item.getId()).getName(), is(replacedName));
-    }
-
-    @Test
     public void whenDeleteItem() {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Deleted item"));
