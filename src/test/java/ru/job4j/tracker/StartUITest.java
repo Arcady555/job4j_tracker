@@ -9,6 +9,7 @@ public class StartUITest {
 
     @Test
     public void whenInvalidExit() {
+
         Output out = new StubOutput();
         Input in = new StubInput(
                 new String[] {"8", "0"}
