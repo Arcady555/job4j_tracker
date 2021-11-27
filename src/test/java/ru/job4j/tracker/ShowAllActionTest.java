@@ -25,12 +25,12 @@ public class ShowAllActionTest {
         assertThat(out.toString(), is(
                 "Menu:" + ln
                         + "0. Show all items" + ln
-                        + "1. Exit Program" + ln
+                        + "1. Exit" + ln
                         + "=== Show all items ===" + ln
                         + one + ln
                         + "Menu:" + ln
                         + "0. Show all items" + ln
-                        + "1. Exit Program" + ln
+                        + "1. Exit" + ln
         ));
     }
 }

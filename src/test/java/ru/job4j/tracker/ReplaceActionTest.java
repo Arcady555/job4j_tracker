@@ -26,12 +26,12 @@ public class ReplaceActionTest {
         assertThat(out.toString(), is(
                 "Menu:" + ln
                         + "0. Replace Item" + ln
-                        + "1. Exit Program" + ln
+                        + "1. Exit" + ln
                         + "=== Replace item ===" + ln
                         + "Заявка изменена успешно." + ln
                         + "Menu:" + ln
                         + "0. Replace Item" + ln
-                        + "1. Exit Program" + ln
+                        + "1. Exit" + ln
         ));
     }
 

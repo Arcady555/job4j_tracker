@@ -27,12 +27,12 @@ public class FindByNameActionTest {
         assertThat(out.toString(), is(
                 "Menu:" + ln
                         + "0. Find item by name" + ln
-                        + "1. Exit Program" + ln
+                        + "1. Exit" + ln
                         + "=== Find items by name ===" + ln
                         + one + ln
                         + "Menu:" + ln
                         + "0. Find item by name" + ln
-                        + "1. Exit Program" + ln
+                        + "1. Exit" + ln
         ));
     }
 }

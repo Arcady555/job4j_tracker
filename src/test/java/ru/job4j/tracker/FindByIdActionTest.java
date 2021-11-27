@@ -27,12 +27,12 @@ public class FindByIdActionTest {
         assertThat(out.toString(), is(
                 "Menu:" + ln
                         + "0. Find item by id" + ln
-                        + "1. Exit Program" + ln
+                        + "1. Exit" + ln
                         + "=== Find item by id ===" + ln
                         + one + ln
                         + "Menu:" + ln
                         + "0. Find item by id" + ln
-                        + "1. Exit Program" + ln
+                        + "1. Exit" + ln
         ));
     }
 }
