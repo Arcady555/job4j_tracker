@@ -15,8 +15,6 @@ public class FindByIdActionTest {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
         Item one = tracker.add(new Item("test1"));
-        String array = Arrays.toString(tracker.findAll());
-        String arrayOut = array.substring(1, array.length() - 1);
         Input in = new StubInput(
                 new String[] {"0", String.valueOf(one.getId()), "1"}
         );
@@ -31,7 +29,7 @@ public class FindByIdActionTest {
                         + "0. Find item by id" + ln
                         + "1. Exit Program" + ln
                         + "=== Find item by id ===" + ln
-                        + arrayOut + ln
+                        + one + ln
                         + "Menu:" + ln
                         + "0. Find item by id" + ln
                         + "1. Exit Program" + ln
