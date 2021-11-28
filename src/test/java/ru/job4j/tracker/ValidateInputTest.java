@@ -40,7 +40,7 @@ public class ValidateInputTest {
         assertThat(selected, is(0));
     }
 
-    @Test //(expected = NumberFormatException.class)
+    @Test
     public void whenNegativeInput() {
         Output out = new StubOutput();
         Input in = new StubInput(
