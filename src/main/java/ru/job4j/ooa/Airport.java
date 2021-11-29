@@ -7,9 +7,10 @@ public class Airport {
         airbus.printModel();
         airbus.printCountEngine();
 
-        final AirbusA380 airbusA380 = new AirbusA380("A380");
-        System.out.println(airbusA380);
-        airbusA380.printModel();
-        airbusA380.printCountEngine();
+        airbus.setName("A380");
+        System.out.println(airbus);
+        airbus.printModel();
+        airbus.printCountEngine();
     }
+
 }
