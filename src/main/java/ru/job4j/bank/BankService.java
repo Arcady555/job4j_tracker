@@ -9,19 +9,17 @@ public class BankService {
     private final Map<User, List<Account>> users = new HashMap<>();
 
     public void addUser(User user) {
-        if (findByPassport(user.getPassport()) == null) {
-            List<Account> accountList = new ArrayList<>();
-            users.put(user, accountList);
-        }
-        System.out.println("User is already exist.");
+        List<Account> accountList = new ArrayList<>();
+        users.putIfAbsent(user, accountList);
     }
 
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
-        if (findByRequisite(passport, account.getRequisite()) == null) {
-            users.get(user).add(account);
+        if (user != null) {
+            if (!users.get(user).contains(account)) {
+                users.get(user).add(account);
+            }
         }
-        System.out.println("Account is already exist.");
     }
 
     public User findByPassport(String passport) {
@@ -47,15 +45,13 @@ public class BankService {
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
-        double src = findByRequisite(srcPassport, srcRequisite).getBalance();
-        double dest = findByRequisite(destPassport, destRequisite).getBalance();
-        if (src < amount
-                || findByRequisite(srcPassport, srcRequisite) == null
-                || findByRequisite(destPassport, destRequisite) == null) {
+        Account src = findByRequisite(srcPassport, srcRequisite);
+        Account dest = findByRequisite(destPassport, destRequisite);
+        if (src == null || dest == null || src.getBalance() < amount) {
             return false;
         }
-        findByRequisite(srcPassport, srcRequisite).setBalance(src - amount);
-        findByRequisite(destPassport, destRequisite).setBalance(dest + amount);
+        src.setBalance(src.getBalance() - amount);
+        dest.setBalance(dest.getBalance() + amount);
         return true;
     }
 }
