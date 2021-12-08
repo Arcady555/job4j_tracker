@@ -35,7 +35,7 @@ public class JobComparatorTest {
         Comparator<Job> name = new SortByPriorityJob();
         int rsl = name.compare(
                 new Job("Impl task", 0),
-                new Job("Fix bug", 1)
+                new Job("Impl task", 1)
         );
         assertThat(rsl, lessThan(0));
     }
@@ -55,7 +55,7 @@ public class JobComparatorTest {
         Comparator<Job> name = new JobDescByPriority();
         int rsl = name.compare(
                 new Job("Impl task", 0),
-                new Job("Fix bug", 1)
+                new Job("Impl task", 1)
         );
         assertThat(rsl, greaterThan(0));
     }
