@@ -2,8 +2,19 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Класс описывает аккаунт Клиента.
+ * @author Arcady Parfenov
+ * @version 1.0
+ */
 public class Account {
+    /**
+     * Реквизитв аккаунта(номер счета и т.п.)
+     */
     private String requisite;
+    /**
+     * Баланс счета.
+     */
     private double balance;
 
     public Account(String requisite, double balance) {
@@ -27,6 +38,12 @@ public class Account {
         this.balance = balance;
     }
 
+    /**
+     * Метод определяет равенство
+     * объектов класса Account.
+     * @param o объект для сравнения
+     * @return true
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {
