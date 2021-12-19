@@ -43,9 +43,7 @@ public class CollegeTest {
                 )
         );
         College college = new College(students);
-        if (college.findByAccount("000001").isPresent()) {
-            assertThat(college.findByAccount("000001").get().getGroup(), is("201-18-15"));
-        }
+        assertThat(college.findByAccount("000001").get().getGroup(), is("201-18-15"));
     }
 
     @Test
@@ -99,8 +97,6 @@ public class CollegeTest {
                 )
         );
         College college = new College(students);
-        if (college.findBySubjectName("000002", "Sociology").isPresent()) {
-            assertThat(college.findBySubjectName("000002", "Sociology").get().getScore(), is(65));
-        }
+        assertThat(college.findBySubjectName("000002", "Sociology").get().getScore(), is(65));
     }
 }
