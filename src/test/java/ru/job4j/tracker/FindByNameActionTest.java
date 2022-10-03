@@ -9,7 +9,6 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 public class FindByNameActionTest {
-
     @Test
     public void execute() {
         Output out = new StubOutput();
