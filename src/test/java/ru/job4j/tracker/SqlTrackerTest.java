@@ -18,7 +18,7 @@ import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 public class SqlTrackerTest {
-
+/**
     private static Connection connection;
 
     @BeforeClass
@@ -111,4 +111,5 @@ public class SqlTrackerTest {
         );
         assertThat(tracker.findByName("First"), is(list));
     }
+    */
 }
