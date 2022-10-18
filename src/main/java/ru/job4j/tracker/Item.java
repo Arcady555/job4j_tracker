@@ -4,6 +4,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
+import lombok.Data;
+
+@Data
 public class Item implements Comparable<Item> {
 
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
@@ -27,33 +30,6 @@ public class Item implements Comparable<Item> {
         this.id = id;
         this.name = name;
         this.created = created;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public LocalDateTime getCreated() {
-        return created;
-    }
-
-    @Override
-    public String toString() {
-        return "Item{"
-                + "id=" + id + ", name='" + name + '\''
-                + ", created=" + created.format(FORMATTER) + '}';
     }
 
     @Override
