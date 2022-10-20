@@ -6,10 +6,15 @@ import java.util.Objects;
 
 import lombok.Data;
 
-@Data
-public class Item implements Comparable<Item> {
+import javax.persistence.*;
 
+@Entity
+@Table(name = "items")
+@Data
+public class Item {
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private LocalDateTime created = LocalDateTime.now();
@@ -32,7 +37,7 @@ public class Item implements Comparable<Item> {
         this.created = created;
     }
 
-    @Override
+    //@Override
     public int compareTo(Item another) {
         return Integer.compare(id, another.id);
     }
