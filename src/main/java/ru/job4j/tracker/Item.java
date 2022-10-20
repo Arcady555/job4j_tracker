@@ -37,7 +37,6 @@ public class Item {
         this.created = created;
     }
 
-    //@Override
     public int compareTo(Item another) {
         return Integer.compare(id, another.id);
     }
