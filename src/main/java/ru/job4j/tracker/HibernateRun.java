@@ -6,6 +6,7 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HibernateRun {
@@ -75,6 +76,22 @@ public class HibernateRun {
         Session session = sf.openSession();
         session.beginTransaction();
         Item result = session.get(Item.class, id);
+        session.getTransaction().commit();
+        session.close();
+        return result;
+    }
+
+    public static List<Item> findByName(String name, SessionFactory sf) {
+        List<Item> result = new ArrayList<>();
+        Session session = sf.openSession();
+        session.beginTransaction();
+        List list = session.createQuery("from User").list();
+        List<Item> itemList = (List<Item>) list;
+        for (Item item : itemList) {
+            if (name.equals(item.getName())) {
+                result.add(item);
+            }
+        }
         session.getTransaction().commit();
         session.close();
         return result;
