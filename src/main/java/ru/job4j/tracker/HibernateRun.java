@@ -80,20 +80,4 @@ public class HibernateRun {
         session.close();
         return result;
     }
-
-    public static List<Item> findByName(String name, SessionFactory sf) {
-        List<Item> result = new ArrayList<>();
-        Session session = sf.openSession();
-        session.beginTransaction();
-        List list = session.createQuery("from User").list();
-        List<Item> itemList = (List<Item>) list;
-        for (Item item : itemList) {
-            if (name.equals(item.getName())) {
-                result.add(item);
-            }
-        }
-        session.getTransaction().commit();
-        session.close();
-        return result;
-    }
 }

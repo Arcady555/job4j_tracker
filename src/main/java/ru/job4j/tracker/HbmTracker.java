@@ -1,5 +1,6 @@
 package ru.job4j.tracker;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
@@ -15,35 +16,70 @@ public class HbmTracker implements Store, AutoCloseable {
 
     @Override
     public Item add(Item item) {
-        return HibernateRun.create(item, sf);
+        Session session = sf.openSession();
+        session.beginTransaction();
+        session.save(item);
+        session.getTransaction().commit();
+        session.close();
+        return item;
     }
 
     @Override
     public boolean replace(int id, Item item) {
         item.setId(id);
-        HibernateRun.update(item, sf);
+        Session session = sf.openSession();
+        session.beginTransaction();
+        session.update(item);
+        session.getTransaction().commit();
+        session.close();
         return true;
     }
 
     @Override
     public boolean delete(int id) {
-        HibernateRun.delete(id, sf);
+        Session session = sf.openSession();
+        session.beginTransaction();
+        Item item = new Item();
+        item.setId(id);
+        session.delete(item);
+        session.getTransaction().commit();
+        session.close();
         return true;
     }
 
     @Override
     public List<Item> findAll() {
-        return HibernateRun.findAll(sf);
+        Session session = sf.openSession();
+        session.beginTransaction();
+        List result = session.createQuery("from Item").list();
+        session.getTransaction().commit();
+        session.close();
+        return result;
     }
 
     @Override
     public List<Item> findByName(String key) {
-        return HibernateRun.findByName(key, sf);
+        Session session = sf.openSession();
+        session.beginTransaction();
+        List result = session.createQuery("from Item as i where i.name = :fkey")
+                .setParameter("fkey", key)
+                .list();
+        session.getTransaction().commit();
+        session.close();
+        return result;
     }
 
     @Override
     public Item findById(int id) {
-        return HibernateRun.findById(id, sf);
+        Session session = sf.openSession();
+        session.beginTransaction();
+        Item result = session.createQuery(
+                        "from Item as i where i.id = :fId", Item.class)
+                .setParameter("fId", id)
+                .uniqueResult();
+        session.getTransaction().commit();
+        session.close();
+        return result;
     }
 
     @Override
