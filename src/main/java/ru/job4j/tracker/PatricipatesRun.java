@@ -5,29 +5,39 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import ru.job4j.toone.Role;
+import ru.job4j.toone.User;
+import ru.job4j.toone.UserMessenger;
 
 import java.util.List;
 
-public class HibernateRun {
+public class PatricipatesRun {
     public static void main(String[] args) {
         final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .configure().build();
         try {
             SessionFactory sf = new MetadataSources(registry).buildMetadata().buildSessionFactory();
+            var role = new Role();
+            role.setName("ADMIN");
+            create(role, sf);
+            var user = new User();
+            user.setName("Admin Admin");
+            user.setMessengers(List.of(
+                    new UserMessenger(0, "tg", "@tg"),
+                    new UserMessenger(0, "wu", "@wu")
+            ));
+            user.setRole(role);
+            create(user, sf);
             var item = new Item();
             item.setName("Learn Hibernate");
+            item.setParticipates(List.of(user));
             create(item, sf);
-            System.out.println(item);
-            item.setName("Learn Hibernate 5.");
-            update(item, sf);
-            System.out.println(item);
-            Item rsl = findById(item.getId(), sf);
-            System.out.println(rsl);
-            delete(rsl.getId(), sf);
-            List<Item> list = findAll(sf);
-            for (Item it : list) {
-                System.out.println(it);
-            }
+            sf.openSession()
+                    .createQuery("from Item where id = :fId", Item.class)
+                    .setParameter("fId", item.getId())
+                    .getSingleResult()
+                    .getParticipates()
+                    .forEach(System.out::println);
         }  catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -35,13 +45,13 @@ public class HibernateRun {
         }
     }
 
-    public static Item create(Item item, SessionFactory sf) {
+    public static <T> T create(T model, SessionFactory sf) {
         Session session = sf.openSession();
         session.beginTransaction();
-        session.save(item);
+        session.persist(model);
         session.getTransaction().commit();
         session.close();
-        return item;
+        return model;
     }
 
     public static void update(Item item, SessionFactory sf) {

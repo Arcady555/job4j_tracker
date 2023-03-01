@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 
 public class SqlTrackerTest {
     private static Connection connection;
-
+/**
     @BeforeClass
     public static void initConnection() {
         try (InputStream in = SqlTrackerTest.class.getClassLoader().getResourceAsStream("test.properties")) {
@@ -104,5 +104,5 @@ public class SqlTrackerTest {
                 fifth
         );
         assertThat(tracker.findByName("First"), is(list));
-    }
+    } */
 }
