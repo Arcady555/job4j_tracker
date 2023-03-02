@@ -42,7 +42,7 @@ public class HbmTracker implements Store, AutoCloseable {
         session.delete(id);
         return true;
     }
- //   @Override
+
     public boolean delete(Item item) {
         Session session = sf.openSession();
         session.beginTransaction();
